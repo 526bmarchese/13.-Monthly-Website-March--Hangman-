@@ -151,8 +151,23 @@ setTimeout(() => alert(message), 100) // Display alert after short delay
 
 // /Restart Game - Reloads the page to reset everything
 function restartGame(){
-  location.reload()
-}
+// Clear displayed elements
+document.getElementById('wordDisplay').textContent = '';
+document.getElementById('wrongLetters').textContent = '';
+
+// Restore shamrock image (if used)
+// document.getElementById('shamrock').src = 'imgs/shamrock6.jpg';
+
+// Show difficulty selection, hide game area
+document.getElementById('difficultySelection').classList.remove('d-none');
+document.getElementById('difficultySelection').classList.add('d-block');
+
+document.getElementById('gameArea').classList.remove('d-block');
+document.getElementById('gameArea').classList.add('d-none');
+
+document.getElementById('difficultyBox').classList.remove('d-block');
+document.getElementById('difficultyBox').classList.add('d-none');}
+
 
 // Added event listener to tell the computer that the "Enter" key is pressed in the input 
 document.getElementById('letterInput').addEventListener('keypress', function(event) {
