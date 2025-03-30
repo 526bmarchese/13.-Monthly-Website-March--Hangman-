@@ -1,5 +1,60 @@
+body {
+    background-color: #E8EAF6;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+}
 
-/*  MATCHED BOX COLORS TO DIFFICULTY */
-.easy { background-color: #d4edda; color: #155724; border: 2px solid #155724; } /* Light Green */
-.medium { background-color: #fff3cd; color: #856404; border: 2px solid #856404; } /* Light Yellow */
-.hard { background-color: #f8d7da; color: #721c24; border: 2px solid #721c24; } /* Light Red */
+h1 {
+    color: #1A237E;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.difficulty-btn {
+    margin: 10px;
+    padding: 10px 30px;
+    font-size: 1.2em;
+}
+
+#wordDisplay {
+    font-size: 2.5em;
+    letter-spacing: 5px;
+    margin: 30px 0;
+    color: #346c3a;
+}
+
+#letterInput {
+    font-size: 1.2em;
+    width: 150px !important;
+    margin-right: 10px;
+    text-align: center;
+}
+
+#guessBtn {
+    padding: 8px 25px;
+}
+
+#wrongLetters {
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+.shamrock-img {
+    max-width: 200px;
+    margin: 20px 0;
+}
+
+.easy { background-color: #d4edda; color: #155724; border: 2px solid #155724; }
+.medium { background-color: #fff3cd; color: #856404; border: 2px solid #856404; }
+.hard { background-color: #f8d7da; color: #721c24; border: 2px solid #721c24; }
+
+#difficultyBox {
+    border-radius: 10px;
+    padding: 15px !important;
+    font-size: 1.2em;
+}
+
+.alert {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
