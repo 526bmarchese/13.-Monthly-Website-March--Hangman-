@@ -35,14 +35,14 @@ function startGame(level) {
   // Update the screen
   updateDifficultyDisplay(level)
   updateUI()
-  
+
   // Show/hide the right stuff on screen
   document.getElementById('gameArea').classList.remove('d-none')
   document.getElementById('gameArea').classList.add('d-block')
   document.getElementById('difficultyBox').classList.remove('d-none')
   document.getElementById('difficultyBox').classList.add('d-block')
   document.getElementById('difficultySelection').classList.add('d-none')
-  
+
   // Make the input box ready to type
   document.getElementById('letterInput').focus()
 }
@@ -50,9 +50,9 @@ function startGame(level) {
 // Pick a random word based on how hard you want it
 function getRandomWord(level) {
   let filteredWords = wordList.filter(word => {
-      if (level === 'easy') return word.length <= 4 // short words
-      if (level === 'medium') return word.length >= 5 && word.length <= 7 // medium words
-      if (level === 'hard') return word.length >= 8 // long words
+    if (level === 'easy') return word.length <= 4 // short words
+    if (level === 'medium') return word.length >= 5 && word.length <= 7 // medium words
+    if (level === 'hard') return word.length >= 8 // long words
   })
   return filteredWords[Math.floor(Math.random() * filteredWords.length)]
 }
@@ -64,14 +64,14 @@ function updateDifficultyDisplay(level) {
 
   // Add the right color and emoji
   if (level === 'easy') {
-      difficultyBox.textContent = 'Difficulty: Easy 🍀'
-      difficultyBox.classList.add('easy')
+    difficultyBox.textContent = 'Difficulty: Easy 🍀'
+    difficultyBox.classList.add('easy')
   } else if (level === 'medium') {
-      difficultyBox.textContent = 'Difficulty: Medium 🌟'
-      difficultyBox.classList.add('medium')
+    difficultyBox.textContent = 'Difficulty: Medium 🌟'
+    difficultyBox.classList.add('medium')
   } else if (level === 'hard') {
-      difficultyBox.textContent = 'Difficulty: Hard 💀'
-      difficultyBox.classList.add('hard')
+    difficultyBox.textContent = 'Difficulty: Hard 💀'
+    difficultyBox.classList.add('hard')
   }
 }
 
@@ -87,16 +87,16 @@ function guessLetter() {
 
   // Make sure it's a real letter
   if (!guessedLetter.match(/^[a-z]$/)) {
-      alert('Please enter a valid letter (A-Z)!')
-      inputField.value = ''
-      return
+    alert('Please enter a valid letter (A-Z)!')
+    inputField.value = ''
+    return
   }
 
   // Check if letter was already used
   if (guessedLetters.includes(guessedLetter)) {
-      alert(`You already guessed '${guessedLetter}'. Try a different letter!`)
-      inputField.value = ''
-      return
+    alert(`You already guessed '${guessedLetter}'. Try a different letter!`)
+    inputField.value = ''
+    return
   }
 
   // Add letter to used letters list
@@ -104,9 +104,9 @@ function guessLetter() {
 
   // Check if guess was right or wrong
   if (selectedWord.includes(guessedLetter)) {
-      updateCorrectGuess(guessedLetter)
+    updateCorrectGuess(guessedLetter)
   } else {
-      updateWrongGuess(guessedLetter)
+    updateWrongGuess(guessedLetter)
   }
 
   // Clear and focus input box
@@ -121,7 +121,7 @@ function updateWrongGuess(guessedLetter) {
 
   // Check if player lost
   if (wrongGuesses === maxMistakes) {
-      endGame(false)
+    endGame(false)
   }
 }
 
@@ -131,11 +131,11 @@ function updateCorrectGuess(guessedLetter) {
 
   // Show the correct letter in the word
   for (let i = 0; i < selectedWord.length; i++) {
-      if (selectedWord[i] === guessedLetter) {
-          newDisplayedWord += guessedLetter
-      } else {
-          newDisplayedWord += displayedWord[i]
-      }
+    if (selectedWord[i] === guessedLetter) {
+      newDisplayedWord += guessedLetter
+    } else {
+      newDisplayedWord += displayedWord[i]
+    }
   }
 
   displayedWord = newDisplayedWord
@@ -143,15 +143,15 @@ function updateCorrectGuess(guessedLetter) {
 
   // Check if player won
   if (!displayedWord.includes('_')) {
-      endGame(true)
+    endGame(true)
   }
 }
 
 // Show win/lose message
 function endGame(won) {
   let message = won
-      ? '🎉 Congratulations! You guessed the word! 🍀'
-      : `❌ Game Over! The word was "${selectedWord}".`
+    ? '🎉 Congratulations! You guessed the word! 🍀'
+    : `❌ Game Over! The word was "${selectedWord}".`
 
   const messageDiv = document.createElement('div')
   messageDiv.className = `alert ${won ? 'alert-success' : 'alert-danger'} mt-3`
@@ -175,8 +175,8 @@ function restartGame() {
 }
 
 // Make Enter key work for guessing
-document.getElementById('letterInput').addEventListener('keypress', function(event) {
+document.getElementById('letterInput').addEventListener('keypress', function (event) {
   if (event.key === 'Enter') {
-      guessLetter()
+    guessLetter()
   }
 })
