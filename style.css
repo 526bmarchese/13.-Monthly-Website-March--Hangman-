@@ -58,3 +58,12 @@ h1 {
     margin-top: 20px;
     font-size: 1.2em;
 }
+
+.score-item {
+    margin: 0 15px;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.wins { color: #28a745; }
+.losses { color: #dc3545; }

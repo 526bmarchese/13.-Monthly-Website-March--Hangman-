@@ -21,31 +21,52 @@
 
     <body>
         <main class="container text-center">
-            <h1 class="mb-4">☘️Shamrock Hangman☘️</h1>
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <h1 class="mb-4">☘️Shamrock Hangman☘️</h1>
 
-            <div id="difficultySelection">
-                <h3>Select Difficulty</h3>
-                <button class="btn btn-success difficulty-btn" onclick="startGame('easy')">Easy</button>
-                <button class="btn btn-warning difficulty-btn" onclick="startGame('medium')">Medium</button>
-                <button class="btn btn-danger difficulty-btn" onclick="startGame('hard')">Hard</button>
-            </div>
+                    <div id="difficultySelection">
+                        <h3>Select Difficulty</h3>
+                        <div class="row g-2 justify-content-center">
+                            <div class="col-12 col-sm-4">
+                                <button class="btn btn-success difficulty-btn w-100" onclick="startGame('easy')">Easy</button>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <button class="btn btn-warning difficulty-btn w-100" onclick="startGame('medium')">Medium</button>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <button class="btn btn-danger difficulty-btn w-100" onclick="startGame('hard')">Hard</button>
+                            </div>
+                        </div>
+                    </div>
 
             <div id="difficultyBox" class="mt-3 p-3 fw-bold d-none"></div>
+            <div id="scoreDisplay" class="mt-3">
+                <span class="score-item wins">Wins: 0</span>
+                <span class="score-item losses">Losses: 0</span>
+            </div>
 
             <div id="gameArea" class="mt-4 d-none">
-                <h2 id="wordDisplay" class="mb-3">_ _ _ _ _</h2>
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <h2 id="wordDisplay" class="mb-3">_ _ _ _ _</h2>
+                    </div>
+                    
+                    <div class="col-12 col-md-8">
+                        <div class="input-group mb-3 justify-content-center">
+                            <input type="text" id="letterInput" maxlength="1" class="form-control w-auto" placeholder="Enter a Letter">
+                            <button id="guessBtn" class="btn btn-warning" onclick="guessLetter()">Guess</button>
+                        </div>
+                    </div>
 
-                <div class="mb-3">
-                    <input type="text" id="letterInput" maxlength="1" class="form-control d-inline-block w-auto" placeholder="Enter a Letter">
-                    <button id="guessBtn" class="btn btn-warning" onclick="guessLetter()">Guess</button>
-                </div>
+                    <div class="col-12">
+                        <p id="wrongLetters" class="fw-bold text-danger">Wrong Guesses: </p>
+                    </div>
 
-                <p id="wrongLetters" class="fw-bold text-danger">Wrong Guesses: </p>
 
-                <img src="https://raw.githubusercontent.com/Replit-Shamrock/shamrock-images/main/shamrock6.png" alt="Shamrock Health" id="shamrock" class="shamrock-img">
-
-                <div class="mt-4">
-                    <button id="restartBtn" class="btn btn-danger" onclick="restartGame()">Restart Game</button>
+                    <div class="col-12 mt-4">
+                        <button id="restartBtn" class="btn btn-danger" onclick="restartGame()">Restart Game</button>
+                    </div>
                 </div>
             </div>
         </main>
