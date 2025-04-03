@@ -23,7 +23,7 @@ const maxMistakes = 6 // player loses after 6 wrong guesses
 let wins = 0 // track wins
 let losses = 0 // track losses
 
-// A function that updates score tracker display
+// A function that updates score tracker display (NEW)
 function updateScoreDisplay() {
   document.querySelector('.wins').textContent = `Wins: ${wins}`
   document.querySelector('.losses').textContent = `Losses: ${losses}`
@@ -123,14 +123,14 @@ function guessLetter() {
   document.getElementById('letterInput').focus()
 }
 
-// Handle wrong guesses
+// Handle wrong guesses (NEW)
 function updateWrongGuess(guessedLetter) {
   const wrongSound = new Audio('audio/Wrong.mp3')
   wrongSound.play()
   wrongGuesses++
   document.getElementById('wrongLetters').textContent += `${guessedLetter}`
 
-  // Update lives image
+  // Update lives image (NEW)
   const remainingLives = maxMistakes - wrongGuesses
   document.getElementById('livesImage').src = `img/${remainingLives + 1}-gold-coins.jpeg`
 
@@ -140,7 +140,7 @@ function updateWrongGuess(guessedLetter) {
   }
 }
 
-// Handle correct guesses
+// Handle correct (NEW)
 function updateCorrectGuess(guessedLetter) {
   const correctSound = new Audio('audio/Correct.mp3')
   correctSound.play()
@@ -173,7 +173,7 @@ function endGame(won) {
   }
   updateScoreDisplay()
 
-  // Message user will see if user won/lost
+  // Message user will see if user won/lost (NEW)
   let message = won
     ? '🎉 Congratulations! You guessed the word! 🍀'
     : `❌ Game Over! The word was "${selectedWord}".`
@@ -204,7 +204,7 @@ function restartGame() {
   document.getElementById('difficultyBox').classList.add('d-none')
 }
 
-// Make Enter key work for guessing a letter
+// Make Enter key work for guessing a letter (NEW)
 document.getElementById('letterInput').addEventListener('keypress', function (event) {
   if (event.key === 'Enter') {
     guessLetter()
