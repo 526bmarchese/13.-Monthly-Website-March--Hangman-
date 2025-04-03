@@ -34,6 +34,7 @@ function startGame(level) {
   // Reset everything to start fresh
   wrongGuesses = 0
   guessedLetters = []
+  document.getElementById('livesImage').src = 'img/6-gold-coins.jpeg'
 
   // Pick a random word based on difficulty
   selectedWord = getRandomWord(level)
@@ -124,8 +125,14 @@ function guessLetter() {
 
 // Handle wrong guesses
 function updateWrongGuess(guessedLetter) {
+  const wrongSound = new Audio('audio/Wrong.mp3')
+  wrongSound.play()
   wrongGuesses++
   document.getElementById('wrongLetters').textContent += `${guessedLetter}`
+  
+  // Update lives image
+  const remainingLives = maxMistakes - wrongGuesses
+  document.getElementById('livesImage').src = `img/${remainingLives + 1}-gold-coins.jpeg`
 
   // Check if player lost
   if (wrongGuesses === maxMistakes) {
@@ -135,6 +142,8 @@ function updateWrongGuess(guessedLetter) {
 
 // Handle correct guesses
 function updateCorrectGuess(guessedLetter) {
+  const correctSound = new Audio('audio/Correct.mp3')
+  correctSound.play()
   let newDisplayedWord = ''
 
   // Show the correct letter in the word

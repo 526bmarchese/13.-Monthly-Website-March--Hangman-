@@ -67,3 +67,10 @@ h1 {
 
 .wins { color: #28a745; }
 .losses { color: #dc3545; }
+
+.lives-image {
+    max-width: 200px;
+    height: auto;
+    margin: 15px auto;
+    display: block;
+}
