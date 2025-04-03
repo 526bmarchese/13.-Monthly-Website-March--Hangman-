@@ -16,15 +16,19 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
+
+        <!--Link for Style.css Sheet-->
         <link rel="stylesheet" href="style.css">
     </head>
 
+    <!--Title of the Website H1 Tag-->
     <body>
         <main class="container text-center">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-8 col-lg-6">
                     <h1 class="mb-4">☘️Shamrock Hangman☘️</h1>
 
+                    <!--Difficulty Selection Buttons: Easy, Medium, Hard-->
                     <div id="difficultySelection">
                         <h3>Select Difficulty</h3>
                         <div class="row g-2 justify-content-center">
@@ -40,18 +44,21 @@
                         </div>
                     </div>
 
+            <!--Shows Score Tracker for the User Wins / Losses-->
             <div id="difficultyBox" class="mt-3 p-3 fw-bold d-none"></div>
             <div id="scoreDisplay" class="mt-3">
                 <span class="score-item wins">Wins: 0</span>
                 <span class="score-item losses">Losses: 0</span>
             </div>
 
+            <!--Shows Lines for Each Word-->
             <div id="gameArea" class="mt-4 d-none">
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <h2 id="wordDisplay" class="mb-3">_ _ _ _ _</h2>
                     </div>
-                    
+
+                    <!--Guess Button for Guessing a Letter-->
                     <div class="col-12 col-md-8">
                         <div class="input-group mb-3 justify-content-center">
                             <input type="text" id="letterInput" maxlength="1" class="form-control w-auto" placeholder="Enter a Letter">
@@ -59,11 +66,13 @@
                         </div>
                     </div>
 
+                    <!--Displays Letters user guessed that are incorrect-->
                     <div class="col-12">
                         <img id="livesImage" src="imgs/6-gold-coins.jpeg" alt="Lives remaining" class="lives-image mb-3">
                         <p id="wrongLetters" class="fw-bold text-danger">Wrong Guesses: </p>
                     </div>
 
+                    <!--Displays Restart Button To go Back to Home Page-->
                     <div class="col-12 mt-4">
                         <button id="restartBtn" class="btn btn-danger" onclick="restartGame()">Restart Game</button>
                     </div>
