@@ -131,8 +131,7 @@ function updateWrongGuess(guessedLetter) {
   document.getElementById('wrongLetters').textContent += `${guessedLetter}`
 
   // Update lives image (NEW)
-  const remainingLives = maxMistakes - wrongGuesses
-  document.getElementById('livesImage').src = `imgs/${remainingLives + 1}-gold-coins.jpeg`
+  document.getElementById('livesImage').src = `imgs/${maxMistakes - wrongGuesses}-gold-coins.jpeg`
 
   // Check if player lost the game
   if (wrongGuesses === maxMistakes) {
